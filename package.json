@@ -1,0 +1,31 @@
+{
+  "name": "promises-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/internetuser123/promises-assignment.git"
+  },
+  "keywords": [
+    "promise"
+  ],
+  "author": "Joel Sellgren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/internetuser123/promises-assignment/issues"
+  },
+  "homepage": "https://github.com/internetuser123/promises-assignment#readme",
+  "dependencies": {
+    "axios": "^1.2.5"
+  },
+  "devDependencies": {
+    "buffer": "^5.7.1",
+    "parcel": "^2.8.3"
+  }
+}
