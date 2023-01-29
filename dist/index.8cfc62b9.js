@@ -563,6 +563,9 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const content = document.querySelector(".content");
 const credit = document.querySelector(".credit");
 const timeAndDate = document.querySelector(".time-and-date");
+const norris = document.querySelector(".norris");
+const number = document.querySelector(".number");
+const location = document.querySelector(".location");
 const unsplashApi = ()=>{
     (0, _axiosDefault.default)("https://api.unsplash.com/photos/qD9xzm7yK9U/?client_id=d8WOuDBwyt8dHN-3rilAxikGoVX-CxQzAGdfwy3QLJc").then((response)=>{
         console.log(response);
@@ -570,6 +573,7 @@ const unsplashApi = ()=>{
         credit.innerHTML = `Background photo credit: Unsplash @${response.data.user.username}`;
     }).catch((error)=>{
         console.log(error);
+        content.style.backgroundImage = "url('promises.jpg')"; //Funkar ej
     });
 };
 unsplashApi();
@@ -577,6 +581,37 @@ const updateTime = ()=>{
     timeAndDate.innerHTML = Date();
 };
 setInterval(updateTime, 1000);
+const getPlace = ()=>{
+    navigator.geolocation.getCurrentPosition((position)=>{
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        (0, _axiosDefault.default)(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=0a15459f72bcb893dcf5982775466217&units=metric`).then((response)=>{
+            location.innerHTML = `It is ${response.data.main.temp}c but feels like ${response.data.main.feels_like} in ${response.data.name}`;
+        }).catch((error)=>{
+            console.log(error);
+            location.innerHTML = "Location could not be found";
+        });
+    });
+};
+getPlace();
+const getNorrisJoke = ()=>{
+    (0, _axiosDefault.default)("https://api.chucknorris.io/jokes/random").then((response)=>{
+        norris.innerHTML = response.data.value;
+    }).catch((error)=>{
+        console.log(error);
+        norris.innerHTML = "Could not load Chuck Norris joke...";
+    });
+};
+getNorrisJoke();
+const getNumberInfo = ()=>{
+    (0, _axiosDefault.default)("http://numbersapi.com/random/trivia").then((response)=>{
+        number.innerHTML = response.data;
+    }).catch((error)=>{
+        console.log(error);
+        number.innerHTML = "Unable to reach numbersapi";
+    });
+};
+getNumberInfo();
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

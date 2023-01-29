@@ -9,6 +9,7 @@ background-color: black;
 }
 
 .content {
+    background-image: url(promises.jpg);
     display:flex;
     flex-direction: column;
     align-items: center;
