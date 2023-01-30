@@ -17,7 +17,7 @@ const unsplashApi = () => {
   })
   .catch(error => {
     console.log(error)
-    content.style.backgroundImage = "url('promises.jpg')"; //Funkar ej
+    content.style.backgroundImage = url('./promises.jpg');
   })
 }
 unsplashApi()
@@ -35,7 +35,7 @@ const getPlace = () => {
         
       axios(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=0a15459f72bcb893dcf5982775466217&units=metric`)
       .then(response => {
-        location.innerHTML = `It is ${response.data.main.temp}c but feels like ${response.data.main.feels_like} in ${response.data.name}`
+        location.innerHTML = `It is ${response.data.main.temp}c but feels like ${response.data.main.feels_like}c in ${response.data.name}`
       })
       .catch(error => {
         console.log(error)

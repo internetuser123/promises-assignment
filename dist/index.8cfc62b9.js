@@ -573,7 +573,7 @@ const unsplashApi = ()=>{
         credit.innerHTML = `Background photo credit: Unsplash @${response.data.user.username}`;
     }).catch((error)=>{
         console.log(error);
-        content.style.backgroundImage = "url('promises.jpg')"; //Funkar ej
+        content.style.backgroundImage = url("./promises.jpg");
     });
 };
 unsplashApi();
@@ -586,7 +586,7 @@ const getPlace = ()=>{
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
         (0, _axiosDefault.default)(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=0a15459f72bcb893dcf5982775466217&units=metric`).then((response)=>{
-            location.innerHTML = `It is ${response.data.main.temp}c but feels like ${response.data.main.feels_like} in ${response.data.name}`;
+            location.innerHTML = `It is ${response.data.main.temp}c but feels like ${response.data.main.feels_like}c in ${response.data.name}`;
         }).catch((error)=>{
             console.log(error);
             location.innerHTML = "Location could not be found";
