@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from './node_modules/axios'
 
 const content = document.querySelector(".content")
 const credit = document.querySelector(".credit")
